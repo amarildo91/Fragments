@@ -8,11 +8,6 @@
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
     <item
-        android:id="@+id/action_new"
-        android:icon="@color/colorPrimary"
-        android:title="@string/action_new_hotel"
-        app:showAsAction="ifRoom|withText"/>
-    <item
         android:id="@+id/action_info"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/action_info"
