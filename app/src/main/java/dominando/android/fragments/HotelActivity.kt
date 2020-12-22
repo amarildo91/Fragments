@@ -13,6 +13,7 @@ import dominando.android.fragments.dialog.AboutDialogFragment
 import dominando.android.fragments.form.HotelFormFragment
 import dominando.android.fragments.list.HotelListFragment
 import dominando.android.fragments.model.Hotel
+import kotlinx.android.synthetic.main.activity_hotel.*
 
 class HotelActivity: AppCompatActivity(),
     HotelListFragment.OnHotelClickListener,
@@ -44,6 +45,11 @@ class HotelActivity: AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hotel)
+
+        fabAdd.setOnClickListener{
+            listFragment.hideDeleteMode()
+            HotelFormFragment.newInstance().open(supportFragmentManager)
+        }
     }
 
     override fun onHotelClick(hotel: Hotel) {
@@ -90,7 +96,6 @@ class HotelActivity: AppCompatActivity(),
         when (item?.itemId){
             R.id.action_info -> AboutDialogFragment()
                 .show(supportFragmentManager, "sobre")
-            R.id.action_new -> HotelFormFragment.newInstance().open(supportFragmentManager)
         }
         return super.onOptionsItemSelected(item)
     }
